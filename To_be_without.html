@@ -1,0 +1,128 @@
+<html ng-app="myApp">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script type='text/javascript' src="ipl2.js"></script>
+<style type="text/css">
+    #c1{
+        color:orange;
+    }
+    #te1
+    {
+       
+        border-color: red yellow orange blue ;
+        text-orientation: right;
+        font-size: 30px;
+        color: red;
+        text-align: center;
+        display: inline-block;
+    }
+    #a1:hover
+    {
+        font-size: 40px;
+        color:red;
+    }
+    #na
+    {
+        background-color: silver;
+        border-color: red yellow orange blue ;
+        text-orientation: right;
+        font-size: 40px;
+       
+    margin-top: 10px;
+       
+    }
+    #a1
+    {
+        font-size: 20px;
+        
+    }
+     #po
+    {
+    border-color: red yellow orange blue ;
+    font-size: 35px;
+    color: white;
+     margin-left: 300px;
+    }
+
+#pl
+{
+    color: black;
+}
+    body
+    {
+        background-position:100% 100%;
+    }
+    #m1{
+        background-color: white;
+        margin-top: -20px;
+        margin-left: 0px;
+        margin-right: -20px;
+    }
+
+    #n1
+    {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 10px;
+        background-color: #f3f0dd;
+
+    }
+    </style>
+<body id="n1">
+<div ng-controller="MyCtrl" id="m1"><center>
+ <h1 id="c1"><i>For Species Use Checkbox <mark> human</mark> for human beings or Use Checkbox for <mark>other</mark> </i><h1>
+        <h2 id="c1"><i>For Date of birth Use Checkbox <mark>30 BBY to 5 ABY</mark> or Use Checkbox for <mark>Not between 30 BBY to 5 ABY </mark></i><h2>
+            <h2 id="c1"><i> For Epsidoe Use Checkbox <mark> Episode I..so on</mark></i><h2>
+
+    <div ng-init="group = (names | groupBy:'Species')">
+        <div ng-repeat="m in group"   id="te1" >
+            <b><input type="checkbox" ng-model="useMakes[$index]" />{{m}}</b>
+        </div>
+    </div>
+    <br>
+
+    <div ng-init="group2 = (names | groupBy2:'show1')" >
+        <div ng-repeat="m2 in group2"   id="te1">
+            <b><input type="checkbox" ng-model="useMakes2[$index]"/>{{m2}}</b>
+        </div>
+    </div>
+    <br>
+
+    <br>
+
+    <div ng-init="group1 = (names | groupBy1:'ranges')" >
+        <div ng-repeat="m1 in group1"   id="te1">
+            <b><input type="checkbox" ng-model="useMakes1[$index]"/>{{m1}}</b>
+        </div>
+    </div>
+    <br>
+
+    
+    
+    <div style="clear:both;"></div>
+    <div id="n1">
+       
+ <p ng-repeat="x1 in names | filter:filterMakes()">
+ <a href="#na"  id="a1"  ng-click="select(x1)">{{  x1.name }} </a>
+</p>
+
+<p ng-repeat="x2 in names | filter:filterMakes1()">
+ <a href="#na"  id="a1"  ng-click="select(x2)" >{{  x2.name }}</a>
+</p>
+<p ng-repeat="x3 in names | filter:filterMakes2()">
+ <a href="#na"  id="a1"  ng-click="select(x3)" >{{  x3.name }}</a>
+</p>
+
+
+         
+    </div>
+</center>
+    <div id="na">
+<p id="po"><strong id="pl">Name : </strong>{{selectedItem.name}}</p>
+<p id="po"><strong id="pl">Species : </strong>{{selectedItem.Species}}</p>
+<p id="po"><strong id="pl">Movies : </strong>{{selectedItem.show1}}</p>
+<p id="po"><strong id="pl">Spaceships : </strong>{{selectedItem.space}}</p>
+</div>
+</div></center>
+
+</body>
+</html>
